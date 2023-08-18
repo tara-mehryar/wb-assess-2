@@ -1,0 +1,53 @@
+{
+  "name": "dom-testing-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --no-warnings\" jest",
+    "start": "npm run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@inrupt/jest-jsdom-polyfills": "^2.0.0",
+    "@testing-library/dom": "^9.3.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "cross-env": "^7.0.3",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "jest-html-reporters": "^3.1.4",
+    "jest-puppeteer": "^9.0.0",
+    "jsdom": "^22.1.0",
+    "pptr-testing-library": "^0.7.0",
+    "puppeteer": "^20.7.3"
+  },
+  "jest": {
+    "projects": [
+      "dom/jest.config.cjs",
+      "html-css/jest.config.cjs",
+      "javascript/jest.config.cjs"
+    ],
+    "transform": {},
+    "reporters": [
+      "default",
+      [
+        "jest-html-reporters",
+        {
+          "publicPath": "./test-report",
+          "filename": "report.html",
+          "expand": true,
+          "enableMergeData": false,
+          "openReport": true
+        }
+      ]
+    ]
+  },
+  "jest-puppeteer": {
+    "launch": {
+      "headless": "new"
+    }
+  }
+}
